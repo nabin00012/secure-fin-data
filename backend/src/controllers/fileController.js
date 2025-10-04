@@ -82,11 +82,18 @@ const encryptFile = catchAsync(async (req, res) => {
         });
 
         try {
+            // Sanitize user object before passing to encryption service
+            const sanitizedUser = req.user ? {
+                id: req.user._id ? req.user._id.toString() : req.user.id,
+                email: req.user.email,
+                role: req.user.role
+            } : null;
+
             // Encrypt the file
             const encryptionResult = await encryptionService.encryptFile(
                 req.file.buffer,
                 fileMetadata,
-                req.user
+                sanitizedUser
             );
 
             // Create secure bundle
@@ -104,7 +111,11 @@ const encryptFile = catchAsync(async (req, res) => {
                 processingTime,
                 encrypted: true,
                 success: true
-            }, req.user);
+            }, req.user ? {
+                id: req.user._id ? req.user._id.toString() : req.user.id,
+                email: req.user.email,
+                role: req.user.role
+            } : null);
 
             logger.info('File encrypted successfully', {
                 fileName: fileMetadata.fileName,
@@ -135,7 +146,11 @@ const encryptFile = catchAsync(async (req, res) => {
                 fileType: fileMetadata.fileType,
                 error: error.message,
                 success: false
-            }, req.user);
+            }, req.user ? {
+                id: req.user._id ? req.user._id.toString() : req.user.id,
+                email: req.user.email,
+                role: req.user.role
+            } : null);
 
             throw new AppError(`File encryption failed: ${error.message}`, 500, 'ENCRYPTION_FAILED');
         }

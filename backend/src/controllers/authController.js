@@ -137,7 +137,7 @@ const register = catchAsync(async (req, res) => {
         const apiKey = await user.generateApiKey();
 
         logAuthEvent('REGISTRATION_SUCCESS', {
-            userId: user._id,
+            userId: user._id.toString(),
             email: user.email,
             username: user.username,
             role: user.role,
@@ -146,7 +146,7 @@ const register = catchAsync(async (req, res) => {
         });
 
         logger.info('User registered successfully', {
-            userId: user._id,
+            userId: user._id.toString(),
             email: user.email,
             role: user.role
         });
@@ -245,7 +245,7 @@ const login = catchAsync(async (req, res) => {
         );
 
         logAuthEvent('LOGIN_SUCCESS', {
-            userId: user._id,
+            userId: user._id.toString(),
             email: user.email,
             role: user.role,
             ip: clientIP,
@@ -255,7 +255,7 @@ const login = catchAsync(async (req, res) => {
         });
 
         logger.info('User logged in successfully', {
-            userId: user._id,
+            userId: user._id.toString(),
             email: user.email,
             role: user.role,
             ip: clientIP

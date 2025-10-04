@@ -187,7 +187,7 @@ const logSecurityEvent = (action, details, user = null) => {
         action,
         timestamp: new Date().toISOString(),
         user: user ? {
-            id: user.id,
+            id: user.id ? user.id.toString() : user._id ? user._id.toString() : null,
             email: user.email,
             role: user.role,
             ip: user.ip

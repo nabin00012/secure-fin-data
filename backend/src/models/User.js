@@ -143,10 +143,10 @@ userSchema.pre('save', async function (next) {
         // Update password changed timestamp
         this.security.passwordChangedAt = new Date();
 
-        logger.debug('Password hashed successfully', { userId: this._id });
+        logger.debug('Password hashed successfully', { userId: this._id ? this._id.toString() : 'new' });
         next();
     } catch (error) {
-        logger.error('Password hashing failed:', error);
+        logger.error('Password hashing failed:', error.message || error);
         next(error);
     }
 });
@@ -217,7 +217,7 @@ userSchema.methods.generateApiKey = async function () {
 
     await this.save();
 
-    logger.info('API key generated', { userId: this._id });
+    logger.info('API key generated', { userId: this._id.toString() });
 
     // Return unhashed key (only time it's available in plaintext)
     return apiKey;
@@ -338,14 +338,14 @@ userSchema.statics.createWithPermissions = async function (userData) {
         await user.save();
 
         logger.info('User created successfully', {
-            userId: user._id,
+            userId: user._id.toString(),
             email: user.email,
             role: user.role
         });
 
         return user;
     } catch (error) {
-        logger.error('User creation failed:', error);
+        logger.error('User creation failed:', error.message || error);
         throw error;
     }
 };

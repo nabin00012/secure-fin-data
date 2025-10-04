@@ -93,7 +93,7 @@ const auditMiddleware = (req, res, next) => {
                 timestamp: new Date().toISOString()
             },
             user: req.user ? {
-                id: req.user._id,
+                id: req.user._id ? req.user._id.toString() : req.user.id,
                 email: req.user.email,
                 role: req.user.role
             } : null
@@ -104,9 +104,17 @@ const auditMiddleware = (req, res, next) => {
 
         // Log based on severity
         if (severity === 'high') {
-            logSecurityEvent('HIGH_SEVERITY_REQUEST', auditData, req.user);
+            logSecurityEvent('HIGH_SEVERITY_REQUEST', auditData, req.user ? {
+                id: req.user._id ? req.user._id.toString() : req.user.id,
+                email: req.user.email,
+                role: req.user.role
+            } : null);
         } else if (severity === 'medium') {
-            logSecurityEvent('MEDIUM_SEVERITY_REQUEST', auditData, req.user);
+            logSecurityEvent('MEDIUM_SEVERITY_REQUEST', auditData, req.user ? {
+                id: req.user._id ? req.user._id.toString() : req.user.id,
+                email: req.user.email,
+                role: req.user.role
+            } : null);
         }
 
         // Always log HTTP request for general audit
@@ -156,7 +164,11 @@ const logOperationSpecificAudit = (req, res, auditData) => {
             fileInfo: extractFileInfo(req, res),
             statusCode: res.statusCode,
             duration: auditData.performance.duration
-        }, req.user);
+        }, req.user ? {
+            id: req.user._id ? req.user._id.toString() : req.user.id,
+            email: req.user.email,
+            role: req.user.role
+        } : null);
     }
 
     // Authentication operations
@@ -166,7 +178,11 @@ const logOperationSpecificAudit = (req, res, auditData) => {
             success: res.statusCode < 400,
             clientInfo: req.clientInfo,
             statusCode: res.statusCode
-        }, req.user);
+        }, req.user ? {
+            id: req.user._id ? req.user._id.toString() : req.user.id,
+            email: req.user.email,
+            role: req.user.role
+        } : null);
     }
 
     // Admin operations
@@ -174,12 +190,16 @@ const logOperationSpecificAudit = (req, res, auditData) => {
         logSecurityEvent('ADMIN_OPERATION_AUDIT', {
             operation: `${method} ${url}`,
             adminUser: req.user ? {
-                id: req.user._id,
+                id: req.user._id ? req.user._id.toString() : req.user.id,
                 email: req.user.email
             } : null,
             statusCode: res.statusCode,
             targetResource: extractTargetResource(url)
-        }, req.user);
+        }, req.user ? {
+            id: req.user._id ? req.user._id.toString() : req.user.id,
+            email: req.user.email,
+            role: req.user.role
+        } : null);
     }
 
     // Key management operations
@@ -189,7 +209,11 @@ const logOperationSpecificAudit = (req, res, auditData) => {
             keyOperation: extractKeyOperation(req),
             success: res.statusCode < 400,
             statusCode: res.statusCode
-        }, req.user);
+        }, req.user ? {
+            id: req.user._id ? req.user._id.toString() : req.user.id,
+            email: req.user.email,
+            role: req.user.role
+        } : null);
     }
 
     // Data access operations
@@ -199,7 +223,11 @@ const logOperationSpecificAudit = (req, res, auditData) => {
             dataType: extractDataType(url),
             accessPattern: extractAccessPattern(req),
             statusCode: res.statusCode
-        }, req.user);
+        }, req.user ? {
+            id: req.user._id ? req.user._id.toString() : req.user.id,
+            email: req.user.email,
+            role: req.user.role
+        } : null);
     }
 };
 
@@ -429,7 +457,11 @@ const complianceAudit = (req, res, next) => {
             purpose: req.headers['x-processing-purpose'] || 'not-specified',
             legalBasis: req.headers['x-legal-basis'] || 'not-specified',
             requestId: req.requestId
-        }, req.user);
+        }, req.user ? {
+            id: req.user._id ? req.user._id.toString() : req.user.id,
+            email: req.user.email,
+            role: req.user.role
+        } : null);
     }
 
     // Track financial data access for SOX compliance
@@ -438,7 +470,11 @@ const complianceAudit = (req, res, next) => {
             financialPeriod: extractFinancialPeriod(req),
             accessReason: req.headers['x-access-reason'] || 'not-specified',
             requestId: req.requestId
-        }, req.user);
+        }, req.user ? {
+            id: req.user._id ? req.user._id.toString() : req.user.id,
+            email: req.user.email,
+            role: req.user.role
+        } : null);
     }
 
     next();
@@ -457,7 +493,7 @@ const isFinancialDataAccess = (req) => {
 };
 
 const extractDataSubject = (req) => {
-    return req.params.userId || req.query.userId || req.user?._id || 'unknown';
+    return req.params.userId || req.query.userId || (req.user?._id ? req.user._id.toString() : req.user?.id) || 'unknown';
 };
 
 const extractFinancialPeriod = (req) => {

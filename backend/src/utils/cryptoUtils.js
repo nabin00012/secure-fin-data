@@ -54,10 +54,7 @@ const generateIV = () => {
 const encryptAESGCM = (cek, plaintext, additionalData = null) => {
     try {
         const iv = generateIV();
-        const cipher = crypto.createCipher('aes-256-gcm');
-
-        // Set the IV
-        cipher.setAAD(iv);
+        const cipher = crypto.createCipheriv('aes-256-gcm', cek, iv);
 
         // Add additional authenticated data if provided
         if (additionalData) {
@@ -103,10 +100,9 @@ const encryptAESGCM = (cek, plaintext, additionalData = null) => {
  */
 const decryptAESGCM = (cek, ciphertext, iv, authTag, additionalData = null) => {
     try {
-        const decipher = crypto.createDecipher('aes-256-gcm');
+        const decipher = crypto.createDecipheriv('aes-256-gcm', cek, iv);
 
-        // Set the IV and auth tag
-        decipher.setAAD(iv);
+        // Set the auth tag
         decipher.setAuthTag(authTag);
 
         // Add additional authenticated data if provided
