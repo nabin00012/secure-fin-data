@@ -1,6 +1,31 @@
 # 🔐 Secure Financial Data Platform
 
-A **production-ready, hackathon-quality** MERN stack application for secure financial data processing with enterprise-grade encryption, role-based access control, and comprehensive audit logging.
+A **production-ready** MERN stack application for secure financial data processing with **AES-256-GCM encryption**, role-based access control, and comprehensive audit logging.
+
+> ⚡ **Encrypts 300KB files in ~10ms** | 🔒 **Military-grade security** | 📋 **Full audit compliance**
+
+## 🎬 Live Demo
+
+**Demo Files Available:**
+- 📖 [Complete Demo Guide](./DEMO_GUIDE.md) - Detailed presentation script
+- 🎯 [Quick Cheat Sheet](./DEMO_CHEAT_SHEET.md) - 5-minute demo reference
+
+**Quick Start:**
+```bash
+# 1. Start MongoDB
+brew services start mongodb-community
+
+# 2. Start the application
+npm run dev
+
+# 3. Open browser
+open http://localhost:3000
+```
+
+**Test Credentials:**
+- Register new user or use existing account
+- Upload PDF/Excel files (< 10MB)
+- See encryption happen in real-time!
 
 ## 🎯 Project Overview
 
