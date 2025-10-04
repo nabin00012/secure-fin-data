@@ -75,7 +75,7 @@ router.get('/detailed',
                     state: dbStates[dbState],
                     host: mongoose.connection.host,
                     name: mongoose.connection.name,
-                    collections: mongoose.connection.db ? 
+                    collections: mongoose.connection.db ?
                         Object.keys(mongoose.connection.db.collections || {}).length : 0
                 };
             } catch (error) {

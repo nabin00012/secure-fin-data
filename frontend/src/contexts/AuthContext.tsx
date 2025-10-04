@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 export interface User {
   id: string;
   username: string;
   email: string;
-  role: 'user' | 'analyst' | 'admin' | 'super_admin';
+  role: "user" | "analyst" | "admin" | "super_admin";
   isActive: boolean;
   createdAt: string;
   lastLogin: string;
@@ -25,7 +25,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 };
@@ -41,15 +41,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string): Promise<void> => {
     // Placeholder for future implementation
-    console.log('Login attempt:', email);
-    throw new Error('Login not implemented yet');
+    console.log("Login attempt:", email);
+    throw new Error("Login not implemented yet");
   };
 
   const logout = (): void => {
     setUser(null);
     setToken(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   };
 
   const hasRole = (roles: string | string[]): boolean => {
@@ -68,9 +68,5 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     hasRole,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
