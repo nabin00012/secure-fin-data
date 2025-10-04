@@ -1,0 +1,49 @@
+{
+  "name": "secure-fin-data",
+  "version": "1.0.0",
+  "description": "Secure Financial Data Processing - MERN Stack Hackathon Project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "test": "cd backend && npm test",
+    "demo": "node scripts/demo.js",
+    "generate-keys": "node scripts/generate-keys.js",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "keywords": [
+    "security",
+    "encryption",
+    "financial-data",
+    "aes-gcm",
+    "rsa-oaep",
+    "mern-stack",
+    "hackathon"
+  ],
+  "author": "Secure Finance Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "bcrypt": "^6.0.0",
+    "chalk": "^5.6.2",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "exceljs": "^4.4.0",
+    "express-rate-limit": "^8.1.0",
+    "express-validator": "^7.2.1",
+    "form-data": "^4.0.4",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0",
+    "multer": "^2.0.2",
+    "pdf-parse": "^2.1.7",
+    "winston": "^3.18.3"
+  }
+}

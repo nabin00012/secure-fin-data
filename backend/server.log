@@ -1,0 +1,22 @@
+
+> secure-fin-data-backend@1.0.0 start
+> node src/app.js
+
+[32minfo[39m: RSA key pair validation successful {"environment":"development","pid":42587,"service":"secure-fin-data","timestamp":"2025-10-04 18:00:40.536"}
+[32minfo[39m: Financial Metrics Service initialized {"environment":"development","pid":42587,"service":"secure-fin-data","timestamp":"2025-10-04 18:00:40.537"}
+(node:42587) [MONGOOSE] Warning: Duplicate schema index on {"email":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42587) [MONGOOSE] Warning: Duplicate schema index on {"username":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:42587) [MONGOOSE] Warning: Duplicate schema index on {"resultId":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:42587) [MONGOOSE] Warning: Duplicate schema index on {"retention.expiresAt":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(node:42587) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(node:42587) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+[32minfo[39m: Secure Financial Data API Server running on port 3001 {"environment":"development","mongoURI":"Connected","pid":42587,"port":"3001","service":"secure-fin-data","timestamp":"2025-10-04 18:00:40.565"}
+[32minfo[39m: Encryption service initialized successfully {"environment":"development","pid":42587,"privateKeyPath":"./keys/private.pem","publicKeyPath":"./keys/public.pem","service":"secure-fin-data","timestamp":"2025-10-04 18:00:40.566"}
+[32minfo[39m: Loaded existing keys from disk {"count":0,"environment":"development","pid":42587,"service":"secure-fin-data","timestamp":"2025-10-04 18:00:40.570"}
+[32minfo[39m: Demo key store initialized {"environment":"development","keyDirectory":"./keys/store","loadedKeys":0,"pid":42587,"service":"secure-fin-data","timestamp":"2025-10-04 18:00:40.571"}
+[32minfo[39m: MongoDB connected successfully {"database":"secure-fin-data","environment":"development","host":"localhost","pid":42587,"service":"secure-fin-data","timestamp":"2025-10-04 18:00:40.574"}
+[32minfo[39m: HTTP Request {"contentLength":"186","duration":"2.993667ms","environment":"development","ip":"::1","method":"GET","pid":42587,"service":"secure-fin-data","statusCode":200,"timestamp":"2025-10-04 18:01:18.489","url":"/api/health","userAgent":"axios/1.12.2","userId":null}
+[32minfo[39m: HTTP Request {"contentLength":"186","duration":"4.484459ms","environment":"development","ip":"::1","method":"GET","pid":42587,"service":"secure-fin-data","statusCode":200,"timestamp":"2025-10-04 18:01:18.489","url":"/api/health","userAgent":"axios/1.12.2","userId":null}
+[33mwarn[39m: HTTP Request Error {"contentLength":"240","duration":"10.51475ms","environment":"development","ip":"::1","method":"POST","pid":42587,"service":"secure-fin-data","statusCode":400,"timestamp":"2025-10-04 18:01:24.358","url":"/api/auth/register","userAgent":"axios/1.12.2","userId":null}
+[33mwarn[39m: HTTP Request Error {"contentLength":"240","duration":"11.741042ms","environment":"development","ip":"::1","method":"POST","pid":42587,"service":"secure-fin-data","statusCode":400,"timestamp":"2025-10-04 18:01:24.359","url":"/api/auth/register","userAgent":"axios/1.12.2","userId":null}

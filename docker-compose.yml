@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: secure-fin-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: securepass123
+      MONGO_INITDB_DATABASE: secure-fin-data
+    volumes:
+      - mongodb_data:/data/db
+      - ./infra/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - secure-fin-network
+    command: mongod --auth
+
+  # Redis Cache (for session management and caching)
+  redis:
+    image: redis:7.2-alpine
+    container_name: secure-fin-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass redispass123
+    volumes:
+      - redis_data:/data
+    networks:
+      - secure-fin-network
+
+  # Backend API Server
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: secure-fin-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - MONGODB_URI=mongodb://admin:securepass123@mongodb:27017/secure-fin-data?authSource=admin
+      - REDIS_URL=redis://:redispass123@redis:6379
+    volumes:
+      - ./keys:/app/keys:ro
+      - ./logs:/app/logs
+      - ./sample_data:/app/sample_data:ro
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - secure-fin-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: secure-fin-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_BASE_URL=http://localhost:5000/api
+      - REACT_APP_ENABLE_HTTPS=false
+    depends_on:
+      - backend
+    networks:
+      - secure-fin-network
+
+  # Local KMS Simulator (DEMO ONLY)
+  kms-simulator:
+    build:
+      context: ./infra/kms-simulator
+      dockerfile: Dockerfile
+    container_name: secure-fin-kms
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - KMS_PORT=8080
+    volumes:
+      - kms_keys:/app/keys
+    networks:
+      - secure-fin-network
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+  kms_keys:
+    driver: local
+
+networks:
+  secure-fin-network:
+    driver: bridge

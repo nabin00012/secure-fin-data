@@ -1,0 +1,50 @@
+{"timestamp":"2025-10-04 16:54:13.808","level":"ERROR","message":"Key file verification failed: Public key file not found: ./keys/public.pem","service":"secure-fin-data","pid":19882,"environment":"development","stack":"[TRUNCATED:1330chars]"}
+{"timestamp":"2025-10-04 17:00:53.039","level":"ERROR","message":"Key file verification failed: logger.error is not a function","service":"secure-fin-data","pid":22904,"environment":"development","stack":"[TRUNCATED:1359chars]"}
+{"timestamp":"2025-10-04 17:01:18.278","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":22987,"environment":"development"}
+{"timestamp":"2025-10-04 17:08:46.160","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":25742,"environment":"development"}
+{"timestamp":"2025-10-04 17:09:23.696","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":26258,"environment":"development"}
+{"timestamp":"2025-10-04 17:10:11.298","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":27426,"environment":"development"}
+{"timestamp":"2025-10-04 17:10:34.452","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":27720,"environment":"development"}
+{"timestamp":"2025-10-04 17:12:32.039","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":28522,"environment":"development"}
+{"timestamp":"2025-10-04 17:14:28.051","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":29278,"environment":"development"}
+{"timestamp":"2025-10-04 17:14:50.359","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":29427,"environment":"development"}
+{"timestamp":"2025-10-04 17:16:19.532","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":29985,"environment":"development"}
+{"timestamp":"2025-10-04 17:18:32.512","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":30484,"environment":"development"}
+{"timestamp":"2025-10-04 17:20:06.033","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":31135,"environment":"development"}
+{"timestamp":"2025-10-04 17:21:02.620","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":31381,"environment":"development"}
+{"timestamp":"2025-10-04 17:21:34.914","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":31726,"environment":"development"}
+{"timestamp":"2025-10-04 17:24:30.511","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":32707,"environment":"development"}
+{"timestamp":"2025-10-04 17:29:17.059","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":34416,"environment":"development"}
+{"timestamp":"2025-10-04 17:32:40.362","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":36236,"environment":"development"}
+{"timestamp":"2025-10-04 17:32:40.363","level":"INFO","message":"Financial Metrics Service initialized","service":"secure-fin-data","pid":36236,"environment":"development"}
+{"timestamp":"2025-10-04 17:32:40.397","level":"INFO","message":"Secure Financial Data API Server running on port 3001","service":"secure-fin-data","pid":36236,"environment":"development","port":"3001","mongoURI":"Connected"}
+{"timestamp":"2025-10-04 17:32:40.398","level":"INFO","message":"Encryption service initialized successfully","service":"secure-fin-data","pid":36236,"environment":"development","publicKeyPath":"[REDACTED]","privateKeyPath":"[REDACTED]"}
+{"timestamp":"2025-10-04 17:32:40.402","level":"INFO","message":"Loaded existing keys from disk","service":"secure-fin-data","pid":36236,"environment":"development","count":0}
+{"timestamp":"2025-10-04 17:32:40.403","level":"INFO","message":"Demo key store initialized","service":"secure-fin-data","pid":36236,"environment":"development","keyDirectory":"[REDACTED]","loadedKeys":"[REDACTED]"}
+{"timestamp":"2025-10-04 17:32:40.437","level":"INFO","message":"MongoDB connected successfully","service":"secure-fin-data","pid":36236,"environment":"development","host":"localhost","database":"secure-fin-data"}
+{"timestamp":"2025-10-04 17:45:16.098","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":38777,"environment":"development"}
+{"timestamp":"2025-10-04 17:45:16.099","level":"INFO","message":"Financial Metrics Service initialized","service":"secure-fin-data","pid":38777,"environment":"development"}
+{"timestamp":"2025-10-04 17:45:16.129","level":"INFO","message":"Secure Financial Data API Server running on port 3001","service":"secure-fin-data","pid":38777,"environment":"development","port":"3001","mongoURI":"Connected"}
+{"timestamp":"2025-10-04 17:45:16.129","level":"INFO","message":"Encryption service initialized successfully","service":"secure-fin-data","pid":38777,"environment":"development","publicKeyPath":"[REDACTED]","privateKeyPath":"[REDACTED]"}
+{"timestamp":"2025-10-04 17:45:16.133","level":"INFO","message":"Loaded existing keys from disk","service":"secure-fin-data","pid":38777,"environment":"development","count":0}
+{"timestamp":"2025-10-04 17:45:16.134","level":"INFO","message":"Demo key store initialized","service":"secure-fin-data","pid":38777,"environment":"development","keyDirectory":"[REDACTED]","loadedKeys":"[REDACTED]"}
+{"timestamp":"2025-10-04 17:45:16.146","level":"INFO","message":"MongoDB connected successfully","service":"secure-fin-data","pid":38777,"environment":"development","host":"localhost","database":"secure-fin-data"}
+{"timestamp":"2025-10-04 17:59:32.531","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":41933,"environment":"development"}
+{"timestamp":"2025-10-04 17:59:32.532","level":"INFO","message":"Financial Metrics Service initialized","service":"secure-fin-data","pid":41933,"environment":"development"}
+{"timestamp":"2025-10-04 17:59:32.561","level":"INFO","message":"Secure Financial Data API Server running on port 3001","service":"secure-fin-data","pid":41933,"environment":"development","port":"3001","mongoURI":"Connected"}
+{"timestamp":"2025-10-04 17:59:32.562","level":"INFO","message":"Encryption service initialized successfully","service":"secure-fin-data","pid":41933,"environment":"development","publicKeyPath":"[REDACTED]","privateKeyPath":"[REDACTED]"}
+{"timestamp":"2025-10-04 17:59:32.566","level":"INFO","message":"Loaded existing keys from disk","service":"secure-fin-data","pid":41933,"environment":"development","count":0}
+{"timestamp":"2025-10-04 17:59:32.566","level":"INFO","message":"Demo key store initialized","service":"secure-fin-data","pid":41933,"environment":"development","keyDirectory":"[REDACTED]","loadedKeys":"[REDACTED]"}
+{"timestamp":"2025-10-04 17:59:32.590","level":"INFO","message":"MongoDB connected successfully","service":"secure-fin-data","pid":41933,"environment":"development","host":"localhost","database":"secure-fin-data"}
+{"timestamp":"2025-10-04 17:59:55.491","level":"INFO","message":"Received SIGINT, starting graceful shutdown...","service":"secure-fin-data","pid":41933,"environment":"development"}
+{"timestamp":"2025-10-04 18:00:40.536","level":"INFO","message":"RSA key pair validation successful","service":"secure-fin-data","pid":42587,"environment":"development"}
+{"timestamp":"2025-10-04 18:00:40.537","level":"INFO","message":"Financial Metrics Service initialized","service":"secure-fin-data","pid":42587,"environment":"development"}
+{"timestamp":"2025-10-04 18:00:40.565","level":"INFO","message":"Secure Financial Data API Server running on port 3001","service":"secure-fin-data","pid":42587,"environment":"development","port":"3001","mongoURI":"Connected"}
+{"timestamp":"2025-10-04 18:00:40.566","level":"INFO","message":"Encryption service initialized successfully","service":"secure-fin-data","pid":42587,"environment":"development","publicKeyPath":"[REDACTED]","privateKeyPath":"[REDACTED]"}
+{"timestamp":"2025-10-04 18:00:40.570","level":"INFO","message":"Loaded existing keys from disk","service":"secure-fin-data","pid":42587,"environment":"development","count":0}
+{"timestamp":"2025-10-04 18:00:40.571","level":"INFO","message":"Demo key store initialized","service":"secure-fin-data","pid":42587,"environment":"development","keyDirectory":"[REDACTED]","loadedKeys":"[REDACTED]"}
+{"timestamp":"2025-10-04 18:00:40.574","level":"INFO","message":"MongoDB connected successfully","service":"secure-fin-data","pid":42587,"environment":"development","host":"localhost","database":"secure-fin-data"}
+{"timestamp":"2025-10-04 18:01:18.489","level":"INFO","message":"HTTP Request","service":"secure-fin-data","pid":42587,"environment":"development","method":"GET","url":"/api/health","statusCode":200,"duration":"2.993667ms","userAgent":"axios/1.12.2","ip":"::1","contentLength":"186","userId":null}
+{"timestamp":"2025-10-04 18:01:18.489","level":"INFO","message":"HTTP Request","service":"secure-fin-data","pid":42587,"environment":"development","method":"GET","url":"/api/health","statusCode":200,"duration":"4.484459ms","userAgent":"axios/1.12.2","ip":"::1","contentLength":"186","userId":null}
+{"timestamp":"2025-10-04 18:01:24.358","level":"WARN","message":"HTTP Request Error","service":"secure-fin-data","pid":42587,"environment":"development","method":"POST","url":"/api/auth/register","statusCode":400,"duration":"10.51475ms","userAgent":"axios/1.12.2","ip":"::1","contentLength":"240","userId":null}
+{"timestamp":"2025-10-04 18:01:24.359","level":"WARN","message":"HTTP Request Error","service":"secure-fin-data","pid":42587,"environment":"development","method":"POST","url":"/api/auth/register","statusCode":400,"duration":"11.741042ms","userAgent":"axios/1.12.2","ip":"::1","contentLength":"240","userId":null}
